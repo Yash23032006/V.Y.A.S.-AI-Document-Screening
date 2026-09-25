@@ -1,0 +1,1846 @@
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background: #eef3f8;
+    color: #17365d;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard {
+    width: 95%;
+    max-width: 1400px;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.dashboard > h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #17365d;
+    margin-bottom: 10px;
+}
+
+.welcome {
+    text-align: center;
+    color: #777;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   UPLOAD BOX
+========================================================= */
+
+.upload-box {
+    width: 100%;
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.upload-box h2 {
+    color: #17365d;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    color: #666;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   FILE INPUT
+========================================================= */
+
+.upload-box input[type="file"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #d6dce5;
+    border-radius: 12px;
+    background: #fafbfd;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   UPLOAD BUTTON
+========================================================= */
+
+.upload-box button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #17365d;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.upload-box button:hover {
+    background: #0f2948;
+}
+
+
+/* =========================================================
+   MODULE GRID
+========================================================= */
+
+.modules {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   ALL MODULES
+========================================================= */
+
+.module {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    min-height: 270px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition:
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.module:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   MODULE HEADER
+========================================================= */
+
+.module-header {
+    position: relative;
+    width: 100%;
+}
+
+
+/* =========================================================
+   CLICKABLE HEADERS
+========================================================= */
+
+.clickable-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/* =========================================================
+   HEADER CONTENT
+========================================================= */
+
+.module-header-content {
+    width: 100%;
+    padding-right: 60px;
+}
+
+
+/* =========================================================
+   MODULE TITLES
+========================================================= */
+
+.module h2 {
+    color: #203b68;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.module p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   GENERIC EXPAND ARROW
+========================================================= */
+
+.expand-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #17365d;
+    font-size: 28px;
+    font-weight: bold;
+
+    cursor: pointer;
+    z-index: 100;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.expand-icon:hover {
+    color: #0f2948;
+}
+
+
+/* =========================================================
+   OCR RESULT
+========================================================= */
+
+.ocr-result {
+    display: none;
+    width: 100%;
+
+    margin-top: 30px;
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e9ef;
+}
+
+.ocr-result.show {
+    display: block;
+}
+
+
+/* =========================================================
+   EXPANDED OCR
+========================================================= */
+
+.ocr-module.expanded {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: auto;
+}
+
+
+/* =========================================================
+   OCR TERMINAL
+========================================================= */
+
+.terminal-output {
+    width: 100%;
+
+    background: #f8fafc;
+
+    border: 1px solid #dfe5ed;
+    border-radius: 12px;
+
+    padding: 25px;
+
+    overflow-x: auto;
+
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================================
+   OCR TERMINAL LINE
+========================================================= */
+
+.terminal-line {
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    line-height: 1.8;
+
+    color: #17365d;
+
+    white-space: pre;
+}
+
+
+/* =========================================================
+   OCR SEPARATOR
+========================================================= */
+
+.terminal-line.separator {
+    color: #17365d;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   OCR CENTER
+========================================================= */
+
+.terminal-line.center {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   OCR VALUES
+========================================================= */
+
+.terminal-output .terminal-line:not(.separator):not(.center) {
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   OCR BUTTON
+========================================================= */
+
+.expand-button {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 45px;
+    height: 45px;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #17365d;
+
+    font-size: 26px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+}
+
+.expand-button:hover {
+    background: #eef3f8;
+    color: #0f2948;
+}
+
+
+/* =========================================================
+   DATASET VERIFICATION
+========================================================= */
+
+.validation-module {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+/* =========================================================
+   VALIDATION HEADER
+========================================================= */
+
+.validation-module .module-header {
+    position: relative;
+    width: 100%;
+}
+
+.validation-toggle-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #17365d;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.validation-toggle-button:hover {
+    background: #eef3f8;
+    color: #0f2948;
+}
+
+/* =========================================================
+   VALIDATION RESULT
+========================================================= */
+
+.validation-result {
+    display: none;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e9ef;
+}
+
+.validation-result.show {
+    display: block;
+}
+
+/* =========================================================
+   EXPANDED VALIDATION
+========================================================= */
+
+.validation-module.expanded {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: auto;
+}
+
+/* =========================================================
+   DATASET STATUS
+========================================================= */
+
+.dataset-status {
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dataset-status.success {
+    background: #eef8f1;
+    border: 1px solid #c7e6cf;
+}
+
+.dataset-status.danger {
+    background: #fff1f1;
+    border: 1px solid #f0c8c8;
+}
+
+.status-icon {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.dataset-status.success .status-icon {
+    color: #438453;
+}
+
+.dataset-status.danger .status-icon {
+    color: #b64242;
+}
+
+.dataset-status strong {
+    display: block;
+    color: #26364d;
+    font-size: 18px;
+}
+
+.dataset-status p {
+    margin: 5px 0 0;
+    color: #68758a;
+    font-size: 14px;
+}
+
+/* =========================================================
+   COMPARISON TITLE
+========================================================= */
+
+.comparison-title {
+    padding: 18px 20px;
+    background: #f7f9fc;
+    border-top: 1px solid #e1e6ee;
+    border-bottom: 1px solid #e1e6ee;
+    color: #526582;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+}
+
+/* =========================================================
+   COMPARISON TABLE
+========================================================= */
+
+.comparison-table {
+    width: 100%;
+    background: white;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns:
+        1.1fr
+        1.6fr
+        1.6fr
+        1.1fr;
+
+    min-height: 75px;
+    border-bottom: 1px solid #e5e9f0;
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+/* =========================================================
+   FIELD NAME
+========================================================= */
+
+.comparison-field {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    color: #526582;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   EXTRACTED / DATASET VALUES
+========================================================= */
+
+.comparison-value {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.comparison-label {
+    color: #8a96a8;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.value-text {
+    color: #27364d;
+    font-size: 14px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.not-detected {
+    color: #9aa4b2;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.comparison-status {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-badge,
+.mismatch-badge,
+.not-detected-badge {
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.match-badge {
+    color: #39764a;
+    background: #eaf6ed;
+}
+
+.mismatch-badge {
+    color: #b33f3f;
+    background: #fdeaea;
+}
+
+.not-detected-badge {
+    color: #68758a;
+    background: #eef1f5;
+}
+
+/* =========================================================
+   FINAL VALIDATION
+========================================================= */
+
+.final-validation {
+    margin-top: 20px;
+}
+
+.final-status {
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.final-status.valid {
+    background: #edf8f0;
+    border: 1px solid #c5e5cd;
+}
+
+.final-status.invalid {
+    background: #fff0f0;
+    border: 1px solid #efc5c5;
+}
+
+.final-icon {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.final-status.valid .final-icon {
+    color: #438453;
+}
+
+.final-status.invalid .final-icon {
+    color: #b33e3e;
+}
+
+.final-status strong {
+    display: block;
+    color: #26364d;
+    font-size: 20px;
+}
+
+.final-status p {
+    margin: 5px 0 0;
+    color: #68758a;
+    font-size: 14px;
+}
+
+/* =========================================================
+   EMPTY VALIDATION
+========================================================= */
+
+.validation-empty {
+    width: 100%;
+    padding: 25px;
+    background: #f8fafc;
+    border: 1px solid #dfe5ed;
+    border-radius: 12px;
+    color: #666;
+    text-align: center;
+    font-size: 17px;
+}
+
+/* =========================================================
+   RESPONSIVE DATASET VERIFICATION
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .comparison-row {
+        grid-template-columns: 1fr;
+        padding: 15px 0;
+    }
+
+    .comparison-field {
+        padding: 10px 20px;
+    }
+
+    .comparison-value {
+        padding: 8px 20px;
+    }
+
+    .comparison-status {
+        justify-content: flex-start;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .validation-module.expanded {
+        grid-column: auto;
+    }
+
+    .validation-toggle-button {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .comparison-field {
+        padding: 8px 15px;
+    }
+
+    .comparison-value {
+        padding: 8px 15px;
+    }
+
+    .comparison-status {
+        padding: 8px 15px;
+    }
+
+    .final-status {
+        padding: 15px;
+    }
+}
+
+/* =========================================================
+   OTHER MODULES
+========================================================= */
+
+.tampering-module,
+.face-module,
+.fraud-module {
+    min-height: 270px;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    color: #17365d;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 16px;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   LOGIN / SIGNUP
+========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 20px;
+
+    margin: 40px auto;
+}
+
+.card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card h1 {
+    text-align: center;
+
+    color: #17365d;
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    color: #333;
+}
+
+input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+input:focus {
+    border-color: #17365d;
+}
+
+button {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #17365d;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0f2948;
+}
+
+.forgot {
+    text-align: right;
+    margin-top: 10px;
+}
+
+a {
+    color: #17365d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom-text {
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #666;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .dashboard {
+        width: 95%;
+        padding: 10px;
+    }
+
+
+    .dashboard > h1 {
+        font-size: 28px;
+    }
+
+
+    .modules {
+        grid-template-columns: 1fr;
+    }
+
+
+    .module {
+        min-height: 220px;
+        padding: 25px;
+    }
+
+
+    .module h2 {
+        font-size: 26px;
+    }
+
+
+    .module p {
+        font-size: 17px;
+    }
+
+
+    .ocr-module.expanded,
+    .validation-module.expanded {
+        grid-column: auto;
+    }
+
+
+    .terminal-output {
+        padding: 18px;
+    }
+
+
+    .terminal-line {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    .validation-row {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+        padding: 18px;
+    }
+
+
+    .validation-label {
+        font-size: 14px;
+    }
+
+
+    .validation-status {
+        font-size: 16px;
+    }
+
+
+    .expand-icon {
+        right: 0;
+        top: 0;
+    }
+
+
+    .validation-toggle-button {
+        width: 45px;
+        height: 45px;
+
+        font-size: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .upload-box {
+        padding: 25px 18px;
+    }
+
+
+    .module {
+        padding: 20px;
+    }
+
+
+    .terminal-output {
+        padding: 15px;
+    }
+
+
+    .terminal-line {
+        font-size: 13px;
+    }
+
+
+    .validation-title {
+        font-size: 19px;
+        padding: 18px;
+    }
+
+
+    .validation-row {
+        padding: 15px;
+    }
+
+
+    .validation-final {
+        font-size: 17px;
+        padding: 15px;
+    }
+
+}
+
+/* =========================================================
+   TAMPERING DETECTION
+========================================================= */
+
+.tampering-module {
+    transition: all 0.3s ease;
+}
+
+.tampering-clickable {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tampering-clickable:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.module-arrow {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+.tampering-result {
+    display: none;
+    margin-top: 20px;
+}
+
+.tampering-result.show {
+    display: block;
+}
+
+.tampering-module.expanded {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   TAMPERING STATUS
+========================================================= */
+
+.tampering-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tampering-status span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tampering-status strong {
+    font-size: 18px;
+}
+
+
+/* LOW RISK */
+
+.tampering-status.low-risk {
+    background: #e8f7ed;
+    border: 1px solid #8ed1a3;
+}
+
+
+/* MEDIUM RISK */
+
+.tampering-status.medium-risk {
+    background: #fff5d6;
+    border: 1px solid #e5c35c;
+}
+
+
+/* HIGH RISK */
+
+.tampering-status.high-risk {
+    background: #fde8e8;
+    border: 1px solid #e39a9a;
+}
+
+
+/* =========================================================
+   TAMPERING STATISTICS
+========================================================= */
+
+.tampering-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.tampering-stat {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.tampering-stat span {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.tampering-stat strong {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   TAMPERING RESULT IMAGE
+========================================================= */
+
+.tampering-image-section {
+    margin-top: 25px;
+}
+
+.tampering-image-section h3 {
+    margin-bottom: 15px;
+}
+
+.tampering-result-image {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+========================================================= */
+
+.tampering-empty {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
+
+.tampering-error {
+    padding: 20px;
+    border-radius: 10px;
+    background: #fde8e8;
+    border: 1px solid #e39a9a;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .tampering-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================================
+   FACE DETECTION / VERIFICATION
+========================================================= */
+
+.face-module {
+    transition: all 0.3s ease;
+}
+
+.face-clickable {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.face-result {
+    display: none;
+    margin-top: 20px;
+}
+
+.face-result.show {
+    display: block;
+}
+
+.face-module.expanded {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   DOCUMENT FACE STATUS
+========================================================= */
+
+.face-ready {
+    padding: 18px 20px;
+    border-radius: 10px;
+    background: #e8f7ed;
+    border: 1px solid #8ed1a3;
+    margin-bottom: 25px;
+}
+
+.face-ready h3 {
+    margin-bottom: 8px;
+}
+
+.face-ready p {
+    margin: 0;
+}
+
+
+.face-error {
+    padding: 18px 20px;
+    border-radius: 10px;
+    background: #fde8e8;
+    border: 1px solid #e39a9a;
+    margin-bottom: 25px;
+}
+
+
+.face-empty {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
+
+
+/* =========================================================
+   CAMERA
+========================================================= */
+
+.camera-section {
+    margin-top: 25px;
+}
+
+.camera-section h3 {
+    margin-bottom: 8px;
+}
+
+.camera-section > p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+
+.camera-container {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    background: #111;
+}
+
+
+.camera-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   CAMERA BUTTONS
+========================================================= */
+
+.camera-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+
+.camera-buttons button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+.camera-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CAMERA MESSAGE
+========================================================= */
+
+.camera-message {
+    text-align: center;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   VERIFICATION RESULT
+========================================================= */
+
+.verification-result {
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   IDENTITY STATUS
+========================================================= */
+
+.verification-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.verification-status span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.verification-status strong {
+    font-size: 18px;
+}
+
+
+.verification-status.verified {
+    background: #e8f7ed;
+    border: 1px solid #8ed1a3;
+}
+
+
+.verification-status.suspicious {
+    background: #fde8e8;
+    border: 1px solid #e39a9a;
+}
+
+
+/* =========================================================
+   VERIFICATION GRID
+========================================================= */
+
+.verification-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 15px;
+}
+
+
+.verification-card {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+}
+
+
+.verification-card span {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+
+.verification-card strong {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .verification-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .camera-container video {
+        min-height: 220px;
+    }
+
+}
+
+
+/* ============================================================
+   VYAS LOGO
+============================================================ */
+
+.brand-header {
+    text-align: center;
+}
+
+.vyas-logo {
+    display: block !important;
+    width: 100px !important;
+    max-width: 100px !important;
+    height: auto !important;
+    margin: 0 auto 10px auto !important;
+}
+
+
+/* =========================================================
+   SIH DASHBOARD - PROFESSIONAL AI SECURITY UI
+   ADD-ONLY STYLING
+   Existing styles/functions are intentionally preserved.
+   ========================================================= */
+
+/* Dashboard background + subtle professional depth */
+body {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(23, 54, 93, 0.06), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(52, 152, 219, 0.05), transparent 25%),
+        #eef3f8;
+}
+
+/* Main dashboard */
+.dashboard {
+    max-width: 1500px;
+    padding: 28px;
+}
+
+/* Dashboard title */
+.dashboard > h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    text-shadow: 0 2px 10px rgba(23, 54, 93, 0.08);
+}
+
+/* Welcome text */
+.dashboard .welcome {
+    color: #617089;
+    font-size: 16px;
+}
+
+/* Upload area */
+.dashboard .upload-box {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(23, 54, 93, 0.08);
+    background: linear-gradient(145deg, #ffffff, #f7faff);
+    box-shadow:
+        0 12px 35px rgba(23, 54, 93, 0.09),
+        0 2px 8px rgba(23, 54, 93, 0.04);
+}
+
+.dashboard .upload-box::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #17365d, #2878b5, #17365d);
+}
+
+.dashboard .upload-box h2 {
+    font-weight: 800;
+}
+
+.dashboard .upload-box input[type="file"] {
+    border: 2px dashed #b8c7d9;
+    background: #f8fbff;
+    transition: all 0.25s ease;
+}
+
+.dashboard .upload-box input[type="file"]:hover {
+    border-color: #2878b5;
+    background: #f2f8ff;
+}
+
+.dashboard .upload-box button {
+    background: linear-gradient(135deg, #17365d, #245f91);
+    box-shadow: 0 8px 18px rgba(23, 54, 93, 0.18);
+    transition: all 0.25s ease;
+}
+
+.dashboard .upload-box button:hover {
+    background: linear-gradient(135deg, #0f2948, #173f65);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(23, 54, 93, 0.23);
+}
+
+/* Module cards */
+.dashboard .module {
+    border: 1px solid rgba(23, 54, 93, 0.08);
+    background: linear-gradient(145deg, #ffffff, #fbfdff);
+    box-shadow:
+        0 10px 30px rgba(23, 54, 93, 0.07),
+        0 2px 7px rgba(23, 54, 93, 0.035);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.dashboard .module:hover {
+    transform: translateY(-4px);
+    border-color: rgba(40, 120, 181, 0.22);
+    box-shadow:
+        0 18px 38px rgba(23, 54, 93, 0.12),
+        0 4px 10px rgba(23, 54, 93, 0.05);
+}
+
+/* Module header */
+.dashboard .module-header {
+    border-radius: 14px;
+}
+
+.dashboard .module-header-content h2 {
+    font-weight: 800;
+    letter-spacing: -0.3px;
+}
+
+.dashboard .module-header-content p {
+    color: #718096;
+}
+
+/* Clickable headers */
+.dashboard .clickable-header,
+.dashboard .tampering-clickable,
+.dashboard .face-clickable,
+.dashboard .fraud-clickable {
+    transition: background 0.2s ease;
+    border-radius: 14px;
+}
+
+.dashboard .clickable-header:hover,
+.dashboard .tampering-clickable:hover,
+.dashboard .face-clickable:hover,
+.dashboard .fraud-clickable:hover {
+    background: rgba(40, 120, 181, 0.035);
+}
+
+/* Arrows */
+.dashboard .module-arrow,
+.dashboard .expand-button,
+.dashboard .validation-toggle-button,
+.dashboard .expand-icon {
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.dashboard .module-arrow:hover,
+.dashboard .expand-button:hover,
+.dashboard .validation-toggle-button:hover,
+.dashboard .expand-icon:hover {
+    background: #edf5fc;
+    transform: scale(1.05);
+}
+
+/* OCR terminal - security console appearance */
+.dashboard .terminal-output {
+    background:
+        linear-gradient(rgba(23, 54, 93, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 54, 93, 0.025) 1px, transparent 1px),
+        #f7fafc;
+    background-size: 18px 18px;
+    border: 1px solid #d5e0eb;
+    box-shadow:
+        inset 0 0 25px rgba(23, 54, 93, 0.025),
+        0 5px 16px rgba(23, 54, 93, 0.05);
+}
+
+.dashboard .terminal-line {
+    color: #1d466e;
+}
+
+.dashboard .terminal-line.center {
+    color: #17365d;
+}
+
+/* Validation table */
+.dashboard .comparison-table {
+    overflow: hidden;
+    border: 1px solid #e1e7ef;
+    border-radius: 14px;
+}
+
+.dashboard .comparison-row {
+    transition: background 0.18s ease;
+}
+
+.dashboard .comparison-row:hover {
+    background: #f8fbff;
+}
+
+.dashboard .comparison-title {
+    background: linear-gradient(90deg, #f3f7fb, #fafcff);
+}
+
+/* Status cards */
+.dashboard .dataset-status,
+.dashboard .final-status,
+.dashboard .tampering-status,
+.dashboard .verification-status {
+    box-shadow: 0 5px 15px rgba(23, 54, 93, 0.045);
+}
+
+/* Tampering statistics */
+.dashboard .tampering-stat,
+.dashboard .verification-card {
+    border: 1px solid #e1e7ef;
+    background: linear-gradient(145deg, #ffffff, #f8fbff);
+    box-shadow: 0 5px 15px rgba(23, 54, 93, 0.045);
+    transition: all 0.22s ease;
+}
+
+.dashboard .tampering-stat:hover,
+.dashboard .verification-card:hover {
+    transform: translateY(-3px);
+    border-color: #c6d8e9;
+    box-shadow: 0 10px 22px rgba(23, 54, 93, 0.08);
+}
+
+/* Tampering / face expanded content */
+.dashboard .tampering-result,
+.dashboard .face-result,
+.dashboard .fraud-result,
+.dashboard .validation-result,
+.dashboard .ocr-result {
+    animation: sihFadeIn 0.3s ease;
+}
+
+@keyframes sihFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Camera */
+.dashboard .camera-container {
+    border: 2px solid #c8d5e3;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+    background: #07111c;
+}
+
+.dashboard .camera-container video {
+    background: #07111c;
+}
+
+/* Camera buttons */
+.dashboard .camera-buttons button {
+    background: #17365d;
+    color: #fff;
+    box-shadow: 0 5px 12px rgba(23, 54, 93, 0.15);
+    transition: all 0.2s ease;
+}
+
+.dashboard .camera-buttons button:hover:not(:disabled) {
+    background: #245f91;
+    transform: translateY(-2px);
+}
+
+/* Blockchain cards */
+.dashboard .blockchain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.dashboard .blockchain-item {
+    padding: 18px;
+    border: 1px solid #dce5ee;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #ffffff, #f7fbff);
+    box-shadow: 0 5px 15px rgba(23, 54, 93, 0.045);
+    transition: all 0.22s ease;
+    min-width: 0;
+}
+
+.dashboard .blockchain-item:hover {
+    transform: translateY(-3px);
+    border-color: #b9cede;
+    box-shadow: 0 10px 22px rgba(23, 54, 93, 0.08);
+}
+
+.dashboard .blockchain-item span {
+    display: block;
+    margin-bottom: 8px;
+    color: #738197;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.dashboard .blockchain-item strong {
+    display: block;
+    color: #203b68;
+    font-size: 15px;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+.dashboard .blockchain-hash {
+    font-family: "Courier New", monospace;
+    font-size: 13px !important;
+}
+
+/* Overall risk score */
+.dashboard .overall-risk-container {
+    margin-top: 22px;
+    padding: 24px;
+    border: 1px solid #dce5ee;
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(40, 120, 181, 0.08), transparent 48%),
+        linear-gradient(145deg, #ffffff, #f7fbff);
+    box-shadow: 0 10px 25px rgba(23, 54, 93, 0.07);
+}
+
+.dashboard .risk-gauge {
+    filter: drop-shadow(0 5px 12px rgba(23, 54, 93, 0.08));
+}
+
+/* Logout */
+.dashboard .logout {
+    display: inline-block;
+    margin: 35px auto;
+    padding: 12px 24px;
+    border: 1px solid #d2deea;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #17365d;
+    box-shadow: 0 5px 15px rgba(23, 54, 93, 0.06);
+    transition: all 0.2s ease;
+}
+
+.dashboard .logout:hover {
+    text-decoration: none;
+    background: #f3f8fd;
+    border-color: #b9cede;
+    transform: translateY(-2px);
+}
+
+/* Better focus accessibility */
+.dashboard button:focus-visible,
+.dashboard input:focus-visible {
+    outline: 3px solid rgba(40, 120, 181, 0.22);
+    outline-offset: 2px;
+}
+
+/* Responsive blockchain section */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 18px;
+    }
+
+    .dashboard .blockchain-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard .overall-risk-container {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .dashboard .upload-box {
+        padding: 24px 18px;
+    }
+
+    .dashboard .module {
+        padding: 20px 16px;
+    }
+
+    .dashboard .blockchain-item {
+        padding: 15px;
+    }
+}
+
+/* =========================================================
+   END OF ADD-ONLY SIH DASHBOARD STYLING
+   ========================================================= */

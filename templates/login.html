@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login - AI Document Screening</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body class="login-page">
+
+
+    <div class="brand-header login-brand-header">
+
+        <img
+            src="{{ url_for('static', filename='V.Y.A.S..jpeg') }}"
+            alt="VYAS Logo"
+            class="vyas-logo login-vyas-logo"
+        >
+
+        <h1>Login</h1>
+
+    </div>
+
+
+    <div class="container login-container">
+
+        <div class="card login-card">
+
+
+            <div class="login-icon", align="center">
+                🛡️
+            </div>
+
+
+            <h1 class="login-title">
+                AI Document Screening
+            </h1>
+
+
+            <p class="subtitle login-subtitle">
+                Secure Login to Your Account
+            </p>
+
+
+            <p class="login-description">
+                Access the intelligent document screening
+                and verification system.
+            </p>
+
+
+            <form method="POST" class="login-form">
+
+
+                <div class="login-form-group">
+
+                    <label for="email">
+                        Organization Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter organization email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="login-form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="forgot login-forgot">
+
+                    <a href="{{ url_for('forgot_password') }}">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <button type="submit" class="login-button">
+                    Login
+                    <span>→</span>
+                </button>
+
+
+            </form>
+
+
+            <p class="bottom-text login-bottom-text">
+
+                Don't have an account?
+
+                <a href="{{ url_for('signup') }}"
+                   class="login-signup-link">
+                    Sign Up
+                </a>
+
+            </p>
+
+
+            <p class="login-security-note">
+                🔒 Secure access to AI-powered document screening
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+
