@@ -11,14 +11,18 @@
 Flask>=3.0
 Werkzeug>=3.0
 
-numpy>=1.26
-opencv-python>=4.9
+numpy==1.26.4
+opencv-python==4.10.0.84
 Pillow>=10.0
 pandas>=2.2
 openpyxl>=3.1
 
-easyocr>=1.7
-insightface>=0.7
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2+cpu
+torchvision==0.17.2+cpu
+easyocr==1.7.2
+
+insightface==0.7.3
 onnxruntime>=1.17
 
 web3>=7.0
