@@ -23,5 +23,6 @@ onnxruntime>=1.17
 
 web3>=7.0
 gunicorn>=23.0
+python-dotenv>=1.0
 
 # openpyxl is required by pandas for reading/writing .xlsx files.
